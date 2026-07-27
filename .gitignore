@@ -1,0 +1,30 @@
+# Environment
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Docker
+*/data/
+*/logs/
+*/backups/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# SQLite
+*.db
+*.sqlite3
+
+# Secrets
+secrets/
