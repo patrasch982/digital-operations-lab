@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+show_header() {
+    echo
+    echo "========================================="
+    echo "      Digital Operations Lab"
+    echo "========================================="
+    echo
+}
+
+show_system() {
+    echo "Hostname:"
+    hostname
+
+    echo
+    echo "Uptime:"
+    uptime -p
+
+    echo
+    echo "Memory:"
+    free -h
+
+    echo
+    echo "Disk:"
+    df -h /
+}
+
+show_docker() {
+    echo
+    echo "Docker Container:"
+    docker ps --format "table {{.Names}}\t{{.Status}}"
+}
+
+case "${1:-status}" in
+    status)
+        show_header
+        show_system
+        show_docker
+        ;;
+    *)
+        echo "Usage:"
+        echo "./bin/lab status"
+        exit 1
+        ;;
+esac
