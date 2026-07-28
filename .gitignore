@@ -1,30 +1,35 @@
-# Environment
-.env
-.env.*
-
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
 .venv/
 venv/
 
-# Docker
-*/data/
-*/logs/
-*/backups/
-
-# VS Code
-.vscode/
+# Environment
+.env
 
 # macOS
 .DS_Store
 
-# Linux
-*~
+# VS Code
+.vscode/
 
-# SQLite
-*.db
-*.sqlite3
+# Logs
+logs/
+*.log
 
-# Secrets
-secrets/
+# PostgreSQL data
+docker/postgres/data/
+
+# Python cache
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
