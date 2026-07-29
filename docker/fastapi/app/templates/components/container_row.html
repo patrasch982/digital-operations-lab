@@ -1,0 +1,19 @@
+<div class="container-row">
+
+    <div class="container-name">
+
+        {% if container.status == "running" %}
+            🟢
+        {% else %}
+            🔴
+        {% endif %}
+
+        {{ container.name }}
+
+    </div>
+
+    <div class="container-status">
+        {{ container.status }}
+    </div>
+
+</div>

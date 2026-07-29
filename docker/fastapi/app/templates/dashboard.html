@@ -6,8 +6,49 @@ Dashboard
 
 {% block content %}
 
-<h2>Willkommen</h2>
+<h2>Systemstatus</h2>
 
-<p>Das Digital Operations Lab läuft erfolgreich.</p>
+<div class="cards">
+
+    {% with
+        icon="🐳",
+        title="Docker",
+        value=metrics.containers.running ~ " / " ~ metrics.containers.total,
+        subtitle="Container aktiv"
+    %}
+        {% include "components/kpi_card.html" %}
+    {% endwith %}
+
+    {% with
+        icon="💾",
+        title="RAM",
+        value=metrics.system.memory_percent ~ " %",
+        subtitle="Arbeitsspeicher"
+    %}
+        {% include "components/kpi_card.html" %}
+    {% endwith %}
+
+    {% with
+        icon="💽",
+        title="Festplatte",
+        value=metrics.system.disk_percent ~ " %",
+        subtitle="Speicherbelegung"
+    %}
+        {% include "components/kpi_card.html" %}
+    {% endwith %}
+
+</div>
+
+<h2>Docker Container</h2>
+
+<div class="container-list">
+
+{% for container in containers %}
+
+    {% include "components/container_row.html" %}
+
+{% endfor %}
+
+</div>
 
 {% endblock %}
